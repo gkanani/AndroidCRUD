@@ -21,7 +21,7 @@ public class StudentLogin extends AppCompatActivity {
     Context context = StudentLogin.this;
     EditText etEmail, etPassword;
     Button btnLogin;
-    TextView attemptsText;
+    TextView attemptsText, tvAttempt;
     int counter = 3;
     SQLiteDatabase db;
     SharedPreferences sharedPreferences = null;
@@ -36,6 +36,8 @@ public class StudentLogin extends AppCompatActivity {
         etPassword = findViewById(R.id.etpassword);
         attemptsText = findViewById(R.id.attempsCount);
         attemptsText.setVisibility(View.GONE);
+        tvAttempt = findViewById(R.id.attemps);
+        tvAttempt.setVisibility(View.GONE);
 
         btnLogin = findViewById(R.id.btnlogin);
 
@@ -56,8 +58,6 @@ public class StudentLogin extends AppCompatActivity {
 
     private void studentLogin(String loginEmail) {
 
-        Toast.makeText(context, "loginEmail value is  : " + loginEmail, Toast.LENGTH_LONG).show();
-
         db = openOrCreateDatabase("studInfo", Context.MODE_PRIVATE, null);
         Cursor mCursor = db.rawQuery("select * from student where sEmail=?", new String[]{loginEmail});
 
@@ -77,15 +77,18 @@ public class StudentLogin extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
                 attemptsText.setVisibility(View.VISIBLE);
                 attemptsText.setBackgroundColor(Color.RED);
+                tvAttempt.setVisibility(View.VISIBLE);
                 counter--;
                 attemptsText.setText(Integer.toString(counter));
+                attemptsText.setTextColor(Color.BLACK);
 
                 if (counter == 0) {
                     btnLogin.setBackgroundColor(Color.GRAY);
                     btnLogin.setEnabled(false);
                     attemptsText.setText("Login Locked For 3 Sec.");
                     new CountDownTimer(3000, 10) { //Set Timer for 3 seconds
-                        public void onTick(long millisUntilFinished) { }
+                        public void onTick(long millisUntilFinished) {
+                        }
 
                         @Override
                         public void onFinish() {
