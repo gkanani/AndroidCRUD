@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/img1"
+    tools:context=".UpdateActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="cursive"
+        android:text="@string/clg_name"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="34sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif"
+        android:text="Student Update Form"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+
+    <!--<EditText
+        android:id="@+id/updateSid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Enter Student Id" />-->
+
+    <EditText
+        android:id="@+id/updateSName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Student Name" />
+
+    <EditText
+        android:id="@+id/updateSCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Student City" />
+
+    <EditText
+        android:id="@+id/updateSEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Student Email" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:paddingStart="6dp"
+            android:text="Select Stream  : "
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+        <Spinner
+            android:id="@+id/updateStream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="40dp"
+            android:entries="@array/streams"
+            android:popupBackground="#16B7F6"
+            android:spinnerMode="dropdown"
+            android:textStyle="bold|italic" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/updatebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:onClick="updatebtn"
+        android:text="Update"
+        app:layout_constraintTop_toTopOf="@+id/insertbutton"
+        tools:ignore="MissingConstraints,OnClick"
+        tools:layout_editor_absoluteX="233dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="110dp"
+        android:text="@string/wesite_name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints" />
+
+</LinearLayout>

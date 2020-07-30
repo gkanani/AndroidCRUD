@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img1">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clg_name"
+        android:fontFamily="cursive"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="35sp"/>
+
+    <EditText
+        android:id="@+id/etStudName"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="45dp"
+        android:hint="Student Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etStudCity"
+        android:layout_below="@+id/etStudName"
+        android:layout_marginTop="10dp"
+        android:hint="Student City"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etStudEmail"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/etStudCity"
+        android:layout_marginTop="10dp"
+        android:hint="Student Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/selectStream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etStudEmail"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="110dp"
+        android:text="Select Stream" />
+
+    <Spinner
+        android:id="@+id/streams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectStream"
+        android:entries="@array/streams"
+        android:spinnerMode="dropdown"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_below="@+id/etStudEmail"
+        android:layout_width="match_parent"
+        android:layout_marginTop="130dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:text="Submit" />
+
+        <Button
+            android:id="@+id/btnView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:text="View" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginVertical="670dp"
+        android:text="@string/wesite_name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"/>
+
+</RelativeLayout>

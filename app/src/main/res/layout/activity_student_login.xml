@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".StudentLogin"
+    android:background="@drawable/img1">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="cursive"
+        android:text="Ocius IT College - AMD"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/studentlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="Student Login"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
+
+    <EditText
+        android:id="@+id/etemailaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentlogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Enter Your E-mail Id"
+        android:inputType="textEmailAddress" />
+
+
+    <EditText
+        android:id="@+id/etpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etemailaddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter Your password"
+        android:inputType="textPassword" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etpassword"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp">
+
+        <TextView
+            android:id="@+id/attemps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp"
+            android:text="Attempts Left : "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/attempsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/attemps"
+            android:layout_alignParentEnd="true"
+            android:text="New"
+            android:textSize="25dp" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etpassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:text="Login" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnlogin"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="120dp"
+        android:textColor="@android:color/black"
+        android:text="www.ocius.com"
+        android:textSize="18sp" />
+
+
+</RelativeLayout>

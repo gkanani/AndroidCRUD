@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">StudentDetail</string>
+    <string name="clg_name">Ocius IT College - AMD</string>
+    <string name="wesite_name">www.ocius.com</string>
+    <string-array name="streams">
+        <item>--- Select Stream ---</item>
+        <item>B.C.A.</item>
+        <item>B.Sc.</item>
+        <item>P.G.D.C.A</item>
+        <item>B.Com.</item>
+        <item>B.Sc.IT</item>
+    </string-array>
+    <string name="error_invalid_email">error_invalid_email</string>
+    <string name="error_field_required">error_field_required</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
