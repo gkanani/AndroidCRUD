@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img1">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -12,7 +15,7 @@
         android:text="@string/clg_name"
         android:fontFamily="cursive"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:maxLines="3"
         android:ellipsize="end"
         android:textColor="@android:color/holo_red_dark"

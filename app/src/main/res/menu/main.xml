@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_user"
+        android:orderInCategory="300"
+        android:title="User"
+        app:showAsAction="never">
+
+        <menu>
+            <item
+                android:id="@+id/subitem4"
+                android:title="sub4" />
+            <item
+                android:id="@+id/subitem5"
+                android:title="sub5" />
+            <item
+                android:id="@+id/subitem6"
+                android:title="sub6" />
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="200"
+        android:title="Search"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/subitem1"
+                android:title="sub1" />
+            <item
+                android:id="@+id/subitem2"
+                android:title="sub2" />
+            <item
+                android:id="@+id/subitem3"
+                android:title="sub3" />
+        </menu>
+    </item>
+
+</menu>

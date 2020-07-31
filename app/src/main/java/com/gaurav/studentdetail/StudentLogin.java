@@ -71,7 +71,7 @@ public class StudentLogin extends AppCompatActivity {
 
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
-                startActivity(new Intent(context, MainActivity.class));
+                startActivity(new Intent(context, StudetFormActivity.class));
 
             } else {
                 Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();

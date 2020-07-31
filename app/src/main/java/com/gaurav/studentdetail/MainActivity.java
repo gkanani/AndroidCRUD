@@ -1,12 +1,16 @@
 package com.gaurav.studentdetail;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,7 +18,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,12 +29,14 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     Context context = MainActivity.this;
-    Button btnSubmit, btnView;
+    Button btnSubmit, btnView, logoutButton;
     EditText etStudName, etStudEmail, etStudCity;
     Spinner streams;
     SQLiteDatabase db;
     String streamName = "";
     SharedPreferences sharedpreferences;
+    Toolbar toolbar;
+    SharedPreferences sharedPreferences = null;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 //    String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
@@ -39,7 +47,94 @@ public class MainActivity extends AppCompatActivity {
         init();
         listners();
 //        checkIsLoginOrNot();
+
+        logoutButton = findViewById(R.id.btnlogout);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "welcome to logout", Toast.LENGTH_LONG).show();
+                studentLogout();
+            }
+        });
     }
+
+    private void studentLogout() {
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Are you sure you want to logout?");
+        alertDialogBuilder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        sharedPreferences = getSharedPreferences("loginSharedPreference", Context.MODE_PRIVATE);
+                        String cacheLoginValue = sharedPreferences.getString("loginEmail", "");
+                        Toast.makeText(context, "After login credential is :::::--------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+//                        editor.remove("loginEmail");
+                        editor.clear();
+                        editor.apply();
+                        Toast.makeText(context, "Before login credential is :::::--------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
+
+                        if (cacheLoginValue != null) {
+                            startActivity(new Intent(context, MainActivity.class));
+                        } else {
+                            startActivity(new Intent(context, StudentLogin.class));
+                        }
+                        finish();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String msg = "";
+
+        switch (item.getItemId()) {
+            case R.id.subitem1:
+                msg = "subitem 111";
+                break;
+            case R.id.subitem2:
+                msg = "subitem 222";
+                break;
+            case R.id.subitem3:
+                msg = "subitem 333";
+                break;
+            case R.id.subitem4:
+                msg = "subitem 444";
+                break;
+            case R.id.subitem5:
+                msg = "subitem 555";
+                break;
+            case R.id.subitem6:
+                msg = "subitem 666";
+                break;
+        }
+
+        Toast.makeText(context, msg + " Checked", Toast.LENGTH_LONG).show();
+        return super.onOptionsItemSelected(item);
+    }
+
 
     /*private void checkIsLoginOrNot() {
 
@@ -111,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         System.out.println("date is :------ " + dateFormat.format(date));
-        Toast.makeText(context, "data is : " + dateFormat.format(date), Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Date is coming from MainActivity.java :--------- " + dateFormat.format(date), Toast.LENGTH_LONG).show();
 
         startActivity(new Intent(MainActivity.this, StudetFormActivity.class));
     }
@@ -124,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         boolean checkmail = CheckIsEmailAlreadyInDBorNot(etStudEmail.getText().toString());
 
         if (checkmail) {
-            Toast.makeText(context, "email duplicate.........", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Email Duplicate.........", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -156,6 +251,11 @@ public class MainActivity extends AppCompatActivity {
         etStudEmail = findViewById(R.id.etStudEmail);
         etStudName = findViewById(R.id.etStudName);
         streams = findViewById(R.id.streams);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        /*toolbar.setSubtitle("Testing App");
+        toolbar.setLogo(R.drawable.search);*/
 
         sharedpreferences = getSharedPreferences("FirstPreference", Context.MODE_PRIVATE);
 
