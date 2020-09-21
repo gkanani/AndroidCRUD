@@ -61,13 +61,11 @@ public class StudentLogin extends AppCompatActivity {
         db = openOrCreateDatabase("studInfo", Context.MODE_PRIVATE, null);
         Cursor mCursor = db.rawQuery("select * from student where sEmail=?", new String[]{loginEmail});
 
-
         sharedPreferences = getSharedPreferences("loginSharedPreference", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("loginEmail", loginEmail);
         editor.apply();
         Toast.makeText(context, "login ------" + loginEmail, Toast.LENGTH_LONG).show();
-
 
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {

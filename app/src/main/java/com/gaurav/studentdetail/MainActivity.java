@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         listners();
-//        checkIsLoginOrNot();
+//      checkIsLoginOrNot();
 
         logoutButton = findViewById(R.id.btnlogout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void studentLogout() {
-
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Are you sure you want to logout?");
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context, "Before login credential is :::::--------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
 
                         if (cacheLoginValue != null) {
-                            startActivity(new Intent(context, MainActivity.class));
+                            startActivity(new Intent(context, HomepageActivity.class));
                         } else {
                             startActivity(new Intent(context, StudentLogin.class));
                         }
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-
+                            // Do extra stuff with Negative button
                     }
                 });
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (isFormValid()) {
                     storeDataIntoSQL();
-//                    storeDataInSharedReference();
+//                  storeDataInSharedReference();
                 }
             }
         });
@@ -254,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.YELLOW);
         /*toolbar.setSubtitle("Testing App");
         toolbar.setLogo(R.drawable.search);*/
 

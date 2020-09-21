@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/android1"
     android:orientation="vertical"
-    tools:context=".HomepageActivity"
-    android:background="@drawable/android1">
+    tools:context=".HomepageActivity">
 
 
-    <include
+   <!-- <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />-->
 
 
     <TextView
@@ -30,20 +30,40 @@
         android:layout_marginStart="110dp"
         android:layout_marginTop="50dp"
         android:background="@android:color/black"
-        android:textColor="@android:color/white"
         android:padding="15dp"
-        android:text="Student Registration" />
+        android:text="Student Registration"
+        android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/black"
-        android:textColor="@android:color/white"
-        android:padding="15dp"
-        android:text="Student Login" />
+    <LinearLayout
+        android:layout_width="391dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="450dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/black"
+            android:padding="15dp"
+            android:text="Student Login"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/apicall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/black"
+            android:padding="15dp"
+            android:textAllCaps="false"
+            android:text="API Call"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <!--<ImageView
         android:id="@+id/imageView"
