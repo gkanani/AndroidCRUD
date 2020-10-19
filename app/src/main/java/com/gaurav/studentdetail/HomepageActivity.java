@@ -1,7 +1,5 @@
 package com.gaurav.studentdetail;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,10 +10,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.gaurav.studentdetail.model.BookPojo;
 import com.gaurav.studentdetail.retrofit.APIUtils;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +35,11 @@ public class HomepageActivity extends AppCompatActivity {
     Toolbar toolbar;
     Context context = HomepageActivity.this;
     SharedPreferences sharedPreferences = null;
-    Button registerButton, loginButton, logoutButton , apiButton;
+    Button registerButton, loginButton, logoutButton, apiButton;
     ListView listView;
     BookInterface bookInterface;
     List<BookPojo> list = new ArrayList<BookPojo>();
-    private static final String API_BASE_URL="http://192.168.1.186:8080/";
+    private static final String API_BASE_URL = "http://192.168.1.186:8080/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +111,7 @@ public class HomepageActivity extends AppCompatActivity {
         apiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Pop Up for api call." , Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Pop Up for api call.", Toast.LENGTH_LONG).show();
 //                startActivity(new Intent(context, ApiSites.class));
 
                 getBooks();
@@ -118,9 +120,8 @@ public class HomepageActivity extends AppCompatActivity {
         });
     }
 
-
     private void getBooks() {
-        System.out.println("Into get books function...........");
+        System.out.println("Into get books function from HomePageActivity ...........");
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
@@ -137,18 +138,18 @@ public class HomepageActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<BookPojo>>() {
             @Override
             public void onResponse(Call<List<BookPojo>> call, Response<List<BookPojo>> response) {
-                Toast.makeText(context, "Success from ON_RESPONSE" , Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Success from ON_RESPONSE", Toast.LENGTH_LONG).show();
                 System.out.println("Success........... :):):):):):):):):):):):):)");
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     list = response.body();
-                    listView.setAdapter(new ArrayAdapter<>(context,R.layout.activity_api_sites,list));
+                    listView.setAdapter(new ArrayAdapter<>(context, R.layout.activity_api_sites, list));
                 }
             }
 
             @Override
             public void onFailure(Call<List<BookPojo>> call, Throwable t) {
                 System.out.println("Error............ :(:(:(:(:(:(:(:(:(:(:(:(:(");
-                Toast.makeText(context,"Error msg :--- "+ t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Error msg :--- " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

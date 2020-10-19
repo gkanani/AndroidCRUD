@@ -11,7 +11,7 @@
         android:id="@+id/btnlogout"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="175dp"
+        android:layout_marginStart="175dp"
         android:text="Logout"
         android:textAllCaps="false" />
 

@@ -69,7 +69,7 @@ public class StudentLogin extends AppCompatActivity {
 
         if (mCursor != null) {
             if (mCursor.getCount() > 0) {
-                startActivity(new Intent(context, StudetFormActivity.class));
+                startActivity(new Intent(context, MainActivity.class));
 
             } else {
                 Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
@@ -86,6 +86,8 @@ public class StudentLogin extends AppCompatActivity {
                     attemptsText.setText("Login Locked For 3 Sec.");
                     new CountDownTimer(3000, 10) { //Set Timer for 3 seconds
                         public void onTick(long millisUntilFinished) {
+
+                            Toast.makeText(context, "Clicked ON onTick.... ", Toast.LENGTH_LONG).show();
                         }
 
                         @Override

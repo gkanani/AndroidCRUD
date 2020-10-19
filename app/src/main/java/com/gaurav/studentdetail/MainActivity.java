@@ -70,20 +70,21 @@ public class MainActivity extends AppCompatActivity {
 
                         sharedPreferences = getSharedPreferences("loginSharedPreference", Context.MODE_PRIVATE);
                         String cacheLoginValue = sharedPreferences.getString("loginEmail", "");
-                        Toast.makeText(context, "After login credential is :::::--------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "After credential -------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 //                        editor.remove("loginEmail");
                         editor.clear();
                         editor.apply();
-                        Toast.makeText(context, "Before login credential is :::::--------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Before credential -------- " + cacheLoginValue, Toast.LENGTH_LONG).show();
+                        finish();
 
                         if (cacheLoginValue != null) {
                             startActivity(new Intent(context, HomepageActivity.class));
                         } else {
                             startActivity(new Intent(context, StudentLogin.class));
                         }
-                        finish();
+
                     }
                 });
 
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                            // Do extra stuff with Negative button
+                        // Do extra stuff with Negative button
                     }
                 });
 
@@ -265,11 +266,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public boolean CheckIsEmailAlreadyInDBorNot(String emaail) {
+    public boolean CheckIsEmailAlreadyInDBorNot(String email) {
 
         db = openOrCreateDatabase("studInfo", Context.MODE_PRIVATE, null);
 
-        Cursor cursor = db.rawQuery("select * from student where sEmail=?", new String[]{emaail});
+        Cursor cursor = db.rawQuery("select * from student where sEmail=?", new String[]{email});
         if (cursor.getCount() > 0) {
             return true;
         } else {
